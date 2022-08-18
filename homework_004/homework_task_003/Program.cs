@@ -11,11 +11,11 @@ System.Console.Write("Введите 8 чисел через знак (,) - ");
 string nub = Convert.ToString (System.Console.ReadLine());
 
 
-var NubArray = new List<String> (nub.Split(","));
-if (NubArray.Count == 8)
+var nubArray = new List<String> (nub.Split(","));
+if (nubArray.Count == 8)
 {
     System.Console.Write("Элементы массива - {");
-    foreach(string element in NubArray)
+    foreach(string element in nubArray)
     {
         System.Console.Write($" {element} ");
     }
