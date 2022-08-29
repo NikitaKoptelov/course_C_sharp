@@ -18,9 +18,8 @@ int[,] GetFillArrayNumbers (int lengthArray)
     return fillArrayNumbers;
 }
 
-static Tuple<int, string> GetNumberInArray (int[,] fillArrayNumbers, int columns, int rows)
+Tuple<int, string> GetNumberInArray (int[,] fillArrayNumbers, int columns, int rows)
 {
-    // var perebor = GetFillArrayNumbers(int[,] fillArrayNumbers, int columns, int rows);
     var numb = 0;
     var text = "good";
     if (columns <= fillArrayNumbers.GetLength(0) && rows <= fillArrayNumbers.GetLength(1))
