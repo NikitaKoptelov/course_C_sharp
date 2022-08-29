@@ -24,7 +24,7 @@ int[,] GetProizvedFillArrayNumbers (int[,] fillArrayNumbers1, int[,] fillArrayNu
     {
         for (int j = 0; j < proizvedFillArrayNumbers.GetLength(1); j++)
         {
-            for (int k = 0, p = 0; k < fillArrayNumbers1.GetLength(0); k++)
+            for (int k = 0; k < fillArrayNumbers1.GetLength(0); k++)
             {
                 summaNumbers += fillArrayNumbers1[i, k] * fillArrayNumbers2[k,j];
             }
