@@ -18,7 +18,7 @@ int[,] GetFillArrayNumbers (int lengthArray)
     return fillArrayNumbers;
 }
 
-Tuple<int, string> GetNumberInArray (int[,] fillArrayNumbers, int columns, int rows)
+(int, string) GetNumberInArray (int[,] fillArrayNumbers, int columns, int rows)
 {
     var numb = 0;
     var text = "good";
@@ -30,7 +30,7 @@ Tuple<int, string> GetNumberInArray (int[,] fillArrayNumbers, int columns, int r
     {
         text = "error";
     }
-    var res = Tuple.Create(numb, text);
+    var res = (numb, text);
     return res;
 }
 
