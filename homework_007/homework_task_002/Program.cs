@@ -22,7 +22,7 @@ static Tuple<int, string> GetNumberInArray (int[,] fillArrayNumbers, int columns
 {
     // var perebor = GetFillArrayNumbers(int[,] fillArrayNumbers, int columns, int rows);
     var numb = 0;
-    var text = string.Empty;
+    var text = "good";
     if (columns <= fillArrayNumbers.GetLength(0) && rows <= fillArrayNumbers.GetLength(1))
     {
         numb = fillArrayNumbers[columns,rows];
