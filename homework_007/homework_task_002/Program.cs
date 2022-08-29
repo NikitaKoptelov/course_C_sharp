@@ -5,28 +5,60 @@
 //             Программа:
 
 
-int[,] arrayNumbs = {
-    {1, 4, 7, 2},
-    {5, 9, 2, 3},
-    {8, 4, 2, 4}
-};
-
-int GetNumberInArray (int indexA, int indexB)
+int[,] GetFillArrayNumbers (int lengthArray)
 {
-    if (indexA <= 2 && indexB <= 3)
+    int[,] fillArrayNumbers = new int[lengthArray, lengthArray];
+    for (int i = 0; i < fillArrayNumbers.GetLength(0); i++)
     {
-        return arrayNumbs[indexA,indexB];
+        for (int j = 0; j < fillArrayNumbers.GetLength(1); j++)
+        {
+            fillArrayNumbers[i, j] = new Random().Next(0, 20);
+        }
+    }
+    return fillArrayNumbers;
+}
+
+static Tuple<int, string> GetNumberInArray (int[,] fillArrayNumbers, int columns, int rows)
+{
+    // var perebor = GetFillArrayNumbers(int[,] fillArrayNumbers, int columns, int rows);
+    var numb = 0;
+    var text = string.Empty;
+    if (columns <= fillArrayNumbers.GetLength(0) && rows <= fillArrayNumbers.GetLength(1))
+    {
+        numb = fillArrayNumbers[columns,rows];
     }
     else
     {
-        return -1;
+        text = "error";
     }
+    var res = Tuple.Create(numb, text);
+    return res;
 }
 
 
-Console.Write("введите индекс столбца - ");
-int indexA = Convert.ToInt32(Console.ReadLine());
-Console.Write("введите индекс строки - ");
-int indexB = Convert.ToInt32(Console.ReadLine());
-Console.Write($"число по заданию - ({GetNumberInArray(indexA, indexB)})\n");
 
+void Print (int[,] fillArrayNumbers)
+{
+    int columns = fillArrayNumbers.GetLength(0);
+    int rows = fillArrayNumbers.GetLength(1);
+    for (int i = 0; i < columns; i++)
+    {
+        for (int j = 0; j < rows; j++)
+        {
+            Console.Write($"{fillArrayNumbers[i, j]:d3} ");
+        }
+        Console.WriteLine();
+    }
+}
+
+Console.Write("введите размерность двумерного массива - ");
+int lengthArray = Convert.ToInt32(Console.ReadLine());
+int[,] fillArray = GetFillArrayNumbers(lengthArray);
+Console.WriteLine();
+Print(fillArray);
+Console.Write("введите столбец искомого числа - ");
+int columns = Convert.ToInt32(Console.ReadLine());
+Console.Write("введите строку искомого числа - ");
+int rows = Convert.ToInt32(Console.ReadLine());
+var numberInArray = GetNumberInArray(fillArray, columns, rows);
+Console.WriteLine(numberInArray);
